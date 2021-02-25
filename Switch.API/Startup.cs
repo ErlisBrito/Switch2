@@ -3,11 +3,11 @@ using Microsoft.AspNetCore.Hosting;
 using Microsoft.AspNetCore.Http;
 using Microsoft.Extensions.Configuration;
 using Microsoft.Extensions.DependencyInjection;
-using System.Collections.Generic;
-using Microsoft.EntityFrameworkCore;
+using Switch.Infra.Data.Context;
 
 namespace Switch.API
 {
+    public IConfiguration Configuration { get; }
     public class Startup
     {
         IConfiguration Configuration { get; set; }
@@ -18,10 +18,10 @@ namespace Switch.API
         }
         public void ConfigureServices(IServiceCollection services)
         {
-         //   var conn = Configuration.GetConnectionString("SwitchDB");
-         //   services.AddDbContext<SwitchContext>(option => option.UseLazyLoadingProxies()
-          //                                        .UseMySql(conn, mbox => m.MigrationsAssembly("Switch.Infra.Data")));
-         //   services.AddMvcCore();
+           var conn = Configuration.GetConnectionString("SwitchDB");
+            services.AddDbContext<SwitchContext>(option => option.UseLazyloandingProxies ()
+                                     .UseMySql(conn, mbox => m.MigrationsAssembly("Switch.Infra.Data")));
+            services.AddMvcCore();
 
         }
 

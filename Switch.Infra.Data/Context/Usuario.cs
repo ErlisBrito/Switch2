@@ -1,6 +1,6 @@
 ﻿namespace Switch.Infra.Data.Context
 {
-    internal class Usuario
+    public class Usuario
     {
     }
 }
